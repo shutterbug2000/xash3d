@@ -107,6 +107,10 @@ if(XASH_NONSTANDARD_LOAD)
 	add_definitions(-DXASH_NONSTANDARD_LOAD)
 endif()
 
+if(XASH_PERFMON)
+	add_definitions(-DXASH_PERFMON)
+endif()
+
 if(XASH_DEDICATED)
 	add_definitions(-DXASH_DEDICATED)
 	if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux" AND NOT XASH_SDL)

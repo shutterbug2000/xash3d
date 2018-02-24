@@ -720,6 +720,9 @@ void SCR_Init( void )
 	SCR_RegisterTextures ();
 	SCR_InitCinematic();
 	CL_InitNetgraph();
+#ifdef XASH_PERFMON
+	CL_InitPerf();
+#endif
 	SCR_VidInit();
 
 	if( host.state != HOST_RESTART )

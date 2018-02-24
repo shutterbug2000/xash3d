@@ -426,6 +426,9 @@ void V_PostRender( void )
 		
 		Con_DrawConsole();
 		UI_UpdateMenu( host.realtime );
+#ifdef XASH_PERFMON
+		CL_DrawPerf();
+#endif
 		Con_DrawVersion();
 #if 0
 		Joy_DrawOnScreenKeyboard();

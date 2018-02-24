@@ -1112,6 +1112,8 @@ byte TextureToGamma( byte b );
 #include "platform/android/android-main.h"
 #endif
 
+#include "perf.h"
+
 #ifdef __cplusplus
 }
 #endif

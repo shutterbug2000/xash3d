@@ -772,6 +772,10 @@ void Host_Frame( float time )
 	if( !Host_FilterTime( time ))
 		return;
 
+#ifdef XASH_PERFMON
+	Perf_StartFrame();
+#endif
+
 	rand (); // keep the random time dependent
 
 	Sys_SendKeyEvents (); // call WndProc on WIN32
@@ -1175,6 +1179,11 @@ void Host_InitCommon( int argc, const char** argv, const char *progname, qboolea
 	// startup cmds and cvars subsystem
 	Cmd_Init();
 	Cvar_Init();
+	
+	// perf requires cmd & cvar subsystems
+#ifdef XASH_PERFMON
+	Perf_Init();
+#endif
 
 	Cmd_AddCommand( "clear", Host_Clear_f, "clear console history" );
 
@@ -1431,6 +1440,9 @@ void EXPORT Host_Shutdown( void )
 	NET_Shutdown();
 	HTTP_Shutdown();
 	Con_ClearAutoComplete();
+#ifdef XASH_PERFMON
+	Perf_Shutdown();
+#endif
 	Cmd_Shutdown();
 	Host_FreeCommon();
 	Sys_DestroyConsole();
