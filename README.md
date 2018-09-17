@@ -23,3 +23,19 @@ with original Xash3D and Gold Source.
 The library is licensed under GPLv3 license, see [COPYING](https://github.com/FWGS/xash3d/blob/master/COPYING) for details.
 CMakeLists.txt files are licensed under MIT license, you will find it's text
 in every CMakeLists.txt header.
+
+# Building for the Classic Mini Series
+
+```
+cd engine
+git clone https://github.com/FWGS/nanogl
+cd ..
+```
+Then, edit `mainui/CMakeLists.txt`, and switch the MAINUI_USE_CUSTOM_FONT_RENDER to OFF, and the MAINUI_USE_STB to ON.
+```
+mkdir build
+cd build
+cmake -DXASH_NANOGL=yes -DXASH_GLES=yes ..
+make
+```
+Done!
