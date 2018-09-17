@@ -27,6 +27,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 include(VSForceXPToolchain) # Force XP toolchain for Visual Studio
 
+SET(CMAKE_SYSTEM_NAME Linux)
+include(CMakeForceCompiler)
+CMAKE_FORCE_C_COMPILER(arm-linux-gnueabihf-gcc GNU)
+CMAKE_FORCE_CXX_COMPILER(arm-linux-gnueabihf-g++ GNU)
+
 project(XASH3D)
 
 include(FWGSLib)
